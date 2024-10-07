@@ -156,10 +156,6 @@
         </div>
       </div>
     </div>
-    <!-- Message Popup Trigger -->
-    <div class="text-center my-2">
-      <img id="message-icon" class="mx-auto cursor-pointer w-20" />
-    </div>
 
     <h2 class="text-xl font-bold mb-2 ml-4 mt-4">
       The Pictures that i think you're so georgous
@@ -245,6 +241,5 @@
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
-     
-  </body>
+  </body>
 </html>
