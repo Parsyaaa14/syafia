@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Envelope wiggle animation */
+      .wiggle {
+        animation: wiggle 0.2s ease-in-out infinite alternate;
+      }
+
+      @keyframes wiggle {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(2deg);
+        }
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background-color: #f3f4f6; /* Light gray background for the page */
+      }
+
+      /* Style for the letter */
+      .letter {
+        background: #fafafa; /* Slightly darker white background for the letter */
+        border: 1px solid #ddd; /* Border color */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        padding: 20px; /* Padding for the text */
+        max-width: 600px; /* Max width for letter */
+        margin: auto; /* Center the letter */
+        position: relative; /* For pseudo-element positioning */
+        overflow: hidden; /* Prevent content overflow */
+      }
+
+      /* Adding a paper fold effect */
+      .letter:before {
+        content: "";
+        position: absolute;
+        top: -10px; /* Overlap top */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%; /* Width of the fold */
+        height: 20px; /* Height of the fold */
+        background: #ebebeb; /* Slightly darker gray for the fold */
+        border-radius: 8px 8px 0 0; /* Rounded top corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="text-center letter" id="content">
+      <h1 class="text-3xl font-bold mb-4">Welcome to the Syafia Archive</h1>
+      <p class="mb-4">Open this letter, it's a surprise!</p>
+
+      <img
+        src="images/amplop-removebg-preview.png"
+        alt="Envelope"
+        id="envelope"
+        class="mx-auto w-80 cursor-pointer wiggle"
+      />
+
+      <div id="message" class="mt-4 hidden">
+        <p id="typingText" class="text-lg text-gray-800"></p>
+      </div>
+      <a
+        id="playButton"
+        href="index.html"
+        class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hidden"
+        >Play</a
+      >
+    </div>
+
+    <script>
+      // Function to type the message
+      function typeMessage() {
+        const text = `"To dear Syafia, You are the prettiest girl I have ever seen. I just want to say that I still love you till now. Thank you for being part of my life. Loving you is one of the most beautiful gifts in my life."`;
+        let index = 0;
+        const typingText = document.getElementById("typingText");
+
+        function type() {
+          if (index < text.length) {
+            typingText.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 50); // Adjust typing speed here
+          } else {
+            // When typing is done, show the Play button
+            document.getElementById("playButton").classList.remove("hidden");
+          }
+        }
+        type();
+      }
+
+      // Check session storage when the page loads
+      window.onload = function () {
+        if (sessionStorage.getItem("hasPlayed") === "true") {
+          // If the letter has been opened, directly show the message and Play button
+          document.getElementById("envelope").style.display = "none";
+          document.getElementById("message").style.display = "block";
+          typeMessage();
+        }
+      };
+
+      // Add click event to envelope
+      document
+        .getElementById("envelope")
+        .addEventListener("click", function () {
+          // Hide the envelope
+          this.style.display = "none";
+
+          // Show the message
+          const messageDiv = document.getElementById("message");
+          messageDiv.style.display = "block";
+
+          // Set the session storage flag
+          sessionStorage.setItem("hasPlayed", "true");
+
+          // Start typing animation
+          typeMessage();
+        });
+
+      // Play button click event
+      document
+        .getElementById("playButton")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the default link behavior
+          window.location.href = "index.html"; // Redirect to index.html
+        });
+    </script>
+  </body>
+</html>

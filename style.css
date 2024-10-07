@@ -1,0 +1,115 @@
+/* Custom styles if needed */
+body {
+  font-family: "Arial", sans-serif;
+  background-image: url("images/pinkbg.jpeg"); /* Ganti dengan path gambar */
+  background-size: cover; /* Menutupi seluruh area */
+  background-position: center; /* Mengatur posisi gambar di tengah */
+  background-repeat: no-repeat; /* Tidak mengulang gambar */
+}
+
+/* Tambahkan ini di style.css jika diperlukan */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000; /* Warna tombol panah hitam */
+  width: 90px; /* Lebar tombol */
+  height: 50px; /* Tinggi tombol */
+  top: 50%; /* Memposisikan di tengah vertikal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Membuat tombol berbentuk bulat */
+  background: #ffffff;
+  z-index: 10; /* Menjaga tombol tetap di atas */
+  transition: background 0.3s ease; /* Transisi halus untuk background */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.8); /* Warna latar belakang saat hover */
+}
+
+/* Atur posisi tombol */
+.swiper-button-next {
+  right: 10px; /* Jarak dari tepi kanan */
+  top: 50%; /* Memposisikan di tengah vertikal */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Jarak dari tepi kiri */
+  top: 50%; /* Memposisikan di tengah vertikal */
+}
+
+#audioCanvas {
+  display: block;
+  margin: 0 auto;
+  background: #000;
+}
+.music-player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px; /* Anda bisa sesuaikan */
+  background-color: rgba(128, 128, 128, 0.2);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.album-cover img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.song-info {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.song-title {
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artist {
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+}
+
+#progress {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.controls button:focus {
+  outline: none;
+}
+
+
+
