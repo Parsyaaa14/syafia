@@ -5,6 +5,7 @@ body {
   background-size: cover; /* Menutupi seluruh area */
   background-position: center; /* Mengatur posisi gambar di tengah */
   background-repeat: no-repeat; /* Tidak mengulang gambar */
+  overflow-x: hidden;
 }
 
 /* Tambahkan ini di style.css jika diperlukan */
@@ -111,5 +112,25 @@ body {
   outline: none;
 }
 
+body {
+  overflow-x: hidden;
+}
 
+/* Pastikan elemen gambar responsif */
+img {
+  max-width: 100%;
+  height: auto;
+}
 
+/* Atur agar container gambar bisa di-scroll horizontal */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
