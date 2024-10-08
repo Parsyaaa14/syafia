@@ -17,7 +17,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <!-- <script>
+    <script>
       // Check if the user has already played
       if (!sessionStorage.getItem("hasPlayed")) {
         // Redirect to welcome.html if not
@@ -28,7 +28,7 @@
       window.addEventListener("beforeunload", function () {
         sessionStorage.removeItem("hasPlayed");
       });
-    </script> -->
+    </script>
   </head>
   <body class="bg-gray-100">
     <h1 class="text-3xl font-bold text-center mb-8 mt-4">Syafia Archive</h1>
@@ -79,38 +79,54 @@
         </div>
       </div>
     </section>
-    <div class="music-player mx-auto mt-10">
-      <div class="album-cover">
-        <img src="/images/album.jpeg" alt="Album Cover" />
-      </div>
-      <div class="song-info">
-        <div class="song-title">Kau Yang Kusayang</div>
-        <div class="artist mb-2">Dewa 19, Marcello Tahitoe</div>
-        <div class="controls flex justify-center mt-4">
-          <button
-            id="playPauseBtn"
-            class="bg-red-500 text-white p-2 rounded-full"
-          >
-            <i class="fas fa-play" id="playIcon"></i>
-            <i class="fas fa-pause hidden" id="pauseIcon"></i>
-          </button>
-        </div>
-        <div class="progress-bar">
-          <span id="currentTime">00:00</span>
-          <input type="range" id="progress" min="0" max="100" value="0" />
-          <span id="duration">00:00</span>
-        </div>
-      </div>
-    </div>
 
-    <audio
-      id="audioPlayer"
-      src="audio/Kau Yang Kusayang (feat. Ello).mp3"
-      autoplay
-    ></audio>
-    <!-- Add Navigation -->
-    <div class="swiper-button-next" style="color: #000"></div>
-    <div class="swiper-button-prev" style="color: #000"></div>
+    <div
+      id="imageModal"
+      class="hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center"
+    >
+      <span
+        id="closeModal"
+        class="absolute top-4 right-6 text-white text-4xl cursor-pointer"
+        >&times;</span
+      >
+      <img id="modalImage" class="max-w-full max-h-full rounded-lg" />
+    </div>
+    <div
+      class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container fade-in"
+    >
+      <div class="music-player mx-auto mt-10">
+        <div class="album-cover">
+          <img src="/images/album.jpeg" alt="Album Cover" />
+        </div>
+        <div class="song-info">
+          <div class="song-title">Kau Yang Kusayang</div>
+          <div class="artist mb-2">Dewa 19, Marcello Tahitoe</div>
+          <div class="controls flex justify-center mt-4">
+            <button
+              id="playPauseBtn"
+              class="bg-red-500 text-white p-2 rounded-full"
+            >
+              <i class="fas fa-play" id="playIcon"></i>
+              <i class="fas fa-pause hidden" id="pauseIcon"></i>
+            </button>
+          </div>
+          <div class="progress-bar">
+            <span id="currentTime">00:00</span>
+            <input type="range" id="progress" min="0" max="100" value="0" />
+            <span id="duration">00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <audio
+        id="audioPlayer"
+        src="audio/Kau Yang Kusayang (feat. Ello).mp3"
+        autoplay
+      ></audio>
+      <!-- Add Navigation -->
+      <div class="swiper-button-next" style="color: #000"></div>
+      <div class="swiper-button-prev" style="color: #000"></div>
+    </div>
 
     <!-- Photo Grid -->
     <!-- Section Title -->
@@ -119,63 +135,69 @@
     </h2>
     <!-- Second Row -->
     <!-- <div class="relative"> -->
-    <div class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container">
-      <div class="flex space-x-2 mb-4 mr-2 ml-2">
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 6"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia8.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 7"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia16.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 8"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia6.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia7.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia14.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia33.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia34.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia31.jpg"
-          />
+    <div
+      class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container fade-in"
+    >
+      <div
+        class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container"
+      >
+        <div class="flex space-x-2 mb-4 mr-2 ml-2">
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 6"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia8.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 7"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia16.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 8"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia6.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia7.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia14.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia33.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia34.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia31.jpg"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -189,68 +211,147 @@
     </h2>
     <!-- Second Row -->
     <!-- <div class="relative"> -->
-    <div class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container">
-      <div class="flex space-x-2 mb-4 mr-2 ml-2">
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 6"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia5.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 7"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia4.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 8"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia9.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia12.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia17.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia23.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia30.jpg"
-          />
-        </div>
-        <div class="w-1/3 flex-none">
-          <img
-            alt="Movie Poster 9"
-            class="poster-img w-full h-40 object-cover rounded-lg"
-            src="images/syafia27.jpg"
-          />
+    <div
+      class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container fade-in"
+    >
+      <div
+        class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container"
+      >
+        <div class="flex space-x-2 mb-4 mr-2 ml-2">
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 6"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia5.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 7"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia4.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 8"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia9.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia12.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia17.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia23.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia30.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia27.jpg"
+            />
+          </div>
         </div>
       </div>
     </div>
 
-    <h2 class="text-xl font-bold mb-2 ml-4 mt-4">Thing that make i love you</h2>
+    <h2 class="text-xl font-bold mb-2 ml-4 mt-4">
+      The Pictures that i think its funny
+    </h2>
+
+    <div
+      class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container fade-in"
+    >
+      <div
+        class="flex space-x-2 mb-4 mr-2 ml-2 overflow-x-auto scroll-container"
+      >
+        <div class="flex space-x-2 mb-4 mr-2 ml-2">
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 6"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia32.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 7"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia28.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 8"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia29.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia18.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia21.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia25.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia20.jpg"
+            />
+          </div>
+          <div class="w-1/3 flex-none">
+            <img
+              alt="Movie Poster 9"
+              class="poster-img w-full h-40 object-cover rounded-lg"
+              src="images/syafia36.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-xl font-bold mb-2 ml-4 mt-4">
+      Things that make i love you
+    </h2>
 
     <div class="grid grid-cols-2 gap-4 p-4">
       <div class="bg-gray-100 p-4 rounded-lg shadow-md">
