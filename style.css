@@ -259,7 +259,7 @@ img {
 
 .flower::before,
 .flower::after {
-  content: '';
+  content: "";
   position: absolute;
   background-color: #ff69b4;
   border-radius: 50%;
@@ -313,4 +313,64 @@ img {
 /* Sembunyikan galeri gambar awalnya */
 .hidden {
   display: none;
+}
+
+.box {
+  border: 2px solid #4caf50;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 20px;
+  width: 250px;
+  margin: 10px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 50%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-content span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info {
+  font-size: 0.8em; /* Mengatur ukuran teks lebih kecil */
+  color: #6c757d;   /* Memberikan warna abu-abu untuk teks */
+  font-style: italic; /* Memberikan gaya miring */
+  margin-left: 5px; /* Menambahkan jarak sedikit dari teks utama */
 }

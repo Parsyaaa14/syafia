@@ -79,6 +79,22 @@ function formatTime(seconds) {
   return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
 }
 
+function showBoxContent(id) {
+  const box = document.getElementById(id);
+  const content = box.querySelector('.content');
+  const thumbnail = box.querySelector('.thumbnail');
+  thumbnail.style.display = 'none';
+  content.style.display = 'block';
+}
+
+function resetBoxContent(id) {
+  const box = document.getElementById(id);
+  const content = box.querySelector('.content');
+  const thumbnail = box.querySelector('.thumbnail');
+  content.style.display = 'none';
+  thumbnail.style.display = 'block';
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const confettiContainer = document.getElementById("confetti");
 
