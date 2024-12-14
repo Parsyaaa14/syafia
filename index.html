@@ -31,6 +31,7 @@
     </script>
   </head>
   <body class="bg-gray-100">
+    <div id="confetti"></div>
     <h1 class="text-3xl font-bold text-center mb-8 mt-4">Syafia Archive</h1>
 
     <!-- Message Box -->
@@ -50,26 +51,32 @@
 
     <!-- Image Slider -->
     <section class="container mx-auto my-10">
-      <h2 class="text-2xl font-bold text-center mb-8">
+      <h2 class="text-2xl font-bold text-center mb-8 fade-in">
         The Most Pretty Photo Of You
       </h2>
-      <div class="swiper-container">
+      <div class="flower-animation fade-in">
+        <!-- Animasi bunga sebelum gambar -->
+        <div class="flower"></div>
+        <div class="flower"></div>
+        <div class="flower"></div>
+      </div>
+      <div id="photo-gallery" class="swiper-container hidden"> <!-- Hidden initially -->
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <div class="swiper-slide slide-in">
             <img
               src="images/syafia1.jpg"
               alt="Cover Image 1"
               class="w-9/12 h-auto rounded-lg mx-auto"
             />
           </div>
-          <div class="swiper-slide">
+          <div class="swiper-slide slide-in">
             <img
               src="images/syafia2.jpg"
               alt="Cover Image 2"
               class="w-9/12 h-auto max-h-80 rounded-lg mx-auto"
             />
           </div>
-          <div class="swiper-slide">
+          <div class="swiper-slide slide-in">
             <img
               src="images/syafia3.jpg"
               alt="Cover Image 3"
@@ -79,6 +86,7 @@
         </div>
       </div>
     </section>
+    
 
     <div
       id="imageModal"

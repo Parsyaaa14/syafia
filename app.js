@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const fadeIns = document.querySelectorAll(".fade-in");
 
   function checkFadeIn() {
-    const triggerBottom = window.innerHeight / 5 * 4; // Mengatur kapan fade-in terjadi
+    const triggerBottom = (window.innerHeight / 5) * 4; // Mengatur kapan fade-in terjadi
 
     fadeIns.forEach((fadeIn) => {
       const boxTop = fadeIn.getBoundingClientRect().top;
@@ -184,3 +184,22 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", checkFadeIn);
   checkFadeIn(); // Memanggil fungsi saat halaman pertama kali dimuat
 });
+
+window.onload = function () {
+  const flowerAnimation = document.querySelectorAll(".flower");
+  const photoGallery = document.getElementById("photo-gallery");
+
+  // Tunggu 1 detik sebelum memulai animasi bunga
+  setTimeout(() => {
+    flowerAnimation.forEach((flower, index) => {
+      setTimeout(() => {
+        flower.style.opacity = "1";
+      }, index * 500); // Bunga muncul bertahap
+    });
+
+    // Setelah bunga berkembang, munculkan gambar dengan efek slide-in
+    setTimeout(() => {
+      photoGallery.classList.remove("hidden");
+    }, 2000); // 2 detik setelah animasi bunga selesai
+  }, 1000); // Tunggu 1 detik sebelum memulai animasi
+};
